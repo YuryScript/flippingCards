@@ -1,0 +1,96 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.cards {
+  background-color: #fff;
+
+  display: grid;
+  grid:
+    "1fr 1fr"
+    "1fr 1fr";
+  justify-content: center;
+  align-content: center;
+  place-items: center;
+
+  width: 100%;
+  height: 100vh;
+
+  perspective: 1000px;
+}
+
+.card {
+  flex: 1 1 400px;
+
+  width: 400px;
+  height: 400px;
+
+  margin: 20px;
+
+  transition: transform 1500ms;
+  transform-style: preserve-3d;
+
+  cursor: pointer;
+
+  border-radius: 20px;
+
+  background-color: rgb(49, 49, 49);
+  color: #fff;
+  font-size: 3rem;
+
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+}
+
+.card:hover,
+.back {
+  transform: rotateX(180deg);
+}
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+
+  border-radius: 20px;
+
+  position: absolute;
+
+  backface-visibility: hidden;
+}
+
+.front {
+  background-size: cover;
+}
+
+.back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card:nth-child(1) > .front {
+  background-image: url("https://picsum.photos/id/2/400");
+}
+
+.card:nth-child(2) > .front {
+  background-image: url("https://picsum.photos/id/15/400");
+}
+
+.card:nth-child(3) > .front {
+  background-image: url("https://picsum.photos/id/23/400");
+}
+
+.card:nth-child(4) > .front {
+  background-image: url("https://picsum.photos/id/225/400");
+}
+
+.card:nth-child(2):hover,
+.card:nth-child(2) > .back,
+.card:nth-child(3):hover,
+.card:nth-child(3) > .back {
+  transform: rotateY(180deg);
+}
